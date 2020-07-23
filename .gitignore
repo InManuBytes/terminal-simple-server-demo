@@ -1,0 +1,9 @@
+# generated files
+node_modules
+package_lock.json
+
+# Mac generated files
+.DS_Store
+
+# Secrets, runtime variables
+.env
