@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# get repo
+git clone https://github.com/InManuBytes/terminal-simple-server-demo.git
+
+# move into the repo folder
+cd terminal-simple-server-demo
+
+# install node modules
+npm install
+
+# create a .env file defining the port for the server to listen to
+echo "PORT=3000" > .env
+
+# start server
+npm start 
