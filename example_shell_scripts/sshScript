@@ -1,0 +1,13 @@
+#! /bin/bash
+SSH_KEY=$HOME/.ssh/id_rsa
+SERVER_URL=46.101.168.182
+PATH_TO_SCRIPT=$HOME/terminal-simple-server-demo/example_shell_scripts/localScript
+
+# copy over local script to server
+scp -i $HOME/.ssh/id_rsa $PATH_TO_SCRIPT root@46.101.168.182:~
+
+# ssh into server and install node
+ssh -i $SSH_KEY root@$SERVER_URL "./localScript"
+
+# open the broswer on local machine
+open http://$SERVER_URL:3000/
