@@ -1,10 +1,16 @@
 #! /bin/bash
-SSH_KEY=$HOME/.ssh/sshkey # location of ssh key on your local computer
+# This script assumes the server already has nodejs and npm installed
+# Additionally, it assumes you have ssh access to your server
+# To start up a server, try AWS, Linode, or DigitalOcean
+# A lot of them have free credits for first-time users
+# Follow the instructions on their setting up a server (EC2 on AWS, Droplet on DigitalOCean, and Virtual Machines on Linode)
+
+SSH_KEY=$HOME/.ssh/sshkey # location of ssh key or pem file on your local computer (you can generate ssh keys on the command line)
 SERVER_URL=46.101.168.182 # public ip address of the server
 PATH_TO_SCRIPT=$HOME/demo/localScript # path to local script on your local computer
 
 # copy over local script to server
 scp -i $SSH_KEY $PATH_TO_SCRIPT root@$SERVER_URL:~
 
-# ssh into server and install node
+# ssh into server
 ssh -i $SSH_KEY root@$SERVER_URL "./localScript"
